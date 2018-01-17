@@ -20,11 +20,17 @@ updateLanguage(lang) {
   render () {
     var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
     return (
-      
+
       <ul className='languages'>
         {languages.map(function (lang) {
-          return <li key={lang}> {lang} </li>
-
+          return (
+          <li
+          key={lang}
+          style={lang === this.state.selectedLanguage ? {color: 'red'}: null}
+          onClick = {this.updateLanguage.bind(null,lang)}>
+            {lang} 
+          </li>
+        )
         }, this)}
       </ul>
     )
